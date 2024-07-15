@@ -28,7 +28,7 @@ class GalleryCard extends LitElement {
         ${this.currentResourceIndex === undefined || !(this.config.enable_date_search ?? false) ?
             html`` : html`<input type="date" class="date-picker" @change="${this._handleDateChange}" value="${this._formatDateForInput(this.selectedDate)}">` }
         ${this.currentResourceIndex === undefined || !(this.config.show_reload ?? false) ?
-            html`` : html`<ha-progress-button class="btn-reload" @click="${() => this._loadResources(this._hass)} @connectedCallback="${() => setInterval(() => this._loadResources(this._hass), 5000)}">Reload</ha-progress-button>` }
+            html`` : html`<ha-progress-button class="btn-reload" @click="${() => this._loadResources(this._hass)}" @connectedCallback="${() => setInterval(() => this._loadResources(this._hass), 5000)}">Reload</ha-progress-button>` }
         <div class="resource-viewer" @touchstart="${event => this._handleTouchStart(event)}" @touchmove="${event => this._handleTouchMove(event)}">
           <figure style="margin:5px;">
             ${
